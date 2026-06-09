@@ -1,0 +1,15 @@
+// Main SCSS entry point (using modern Sass @use)
+@use 'variables';
+@use 'base';
+
+// BEM Blocks
+@use 'blocks/button';
+@use 'blocks/header';
+@use 'blocks/hero';
+@use 'blocks/mesh-bg';
+@use 'blocks/about';
+@use 'blocks/certificates';
+@use 'blocks/skills';
+@use 'blocks/projects';
+@use 'blocks/contact';
+@use 'blocks/footer';

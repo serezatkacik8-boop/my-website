@@ -1,0 +1,99 @@
+// BEM Block: .skills
+.skills {
+  position: relative;
+  
+  // Element: __title
+  &__title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    
+    @media (max-width: 576px) {
+      font-size: 2rem;
+    }
+  }
+  
+  // Element: __grid
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  // Element: __category
+  &__category {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(var(--card-blur));
+    
+    &:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+  }
+  
+  // Element: __category-title
+  &__category-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    &-icon {
+      color: var(--accent-primary);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+  // Element: __list
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  // Element: __item
+  &__item {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all var(--transition-fast);
+    
+    &:hover {
+      background-color: var(--accent-primary);
+      color: #ffffff;
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+    }
+    
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+// BEM Block: .mesh-bg
+.mesh-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  overflow: hidden;
+  pointer-events: none;
+  filter: blur(120px);
+  -webkit-filter: blur(120px);
+  opacity: var(--mesh-opacity);
+  transition: opacity var(--transition-normal);
+  
+  // Element: __blob
+  &__blob {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    
+    // Modifier: --1
+    &--1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-primary) 0%, transparent 80%);
+      top: -10%;
+      left: -10%;
+      animation: float-blob-1 25s infinite alternate ease-in-out;
+    }
+    
+    // Modifier: --2
+    &--2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 80%);
+      bottom: -10%;
+      right: -10%;
+      animation: float-blob-2 30s infinite alternate ease-in-out;
+    }
+    
+    // Modifier: --3
+    &--3 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #ec4899 0%, transparent 80%);
+      top: 30%;
+      left: 40%;
+      animation: float-blob-3 28s infinite alternate ease-in-out;
+    }
+    
+    // Modifier: --4
+    &--4 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #3b82f6 0%, transparent 80%);
+      bottom: 20%;
+      left: 10%;
+      animation: float-blob-4 22s infinite alternate ease-in-out;
+    }
+  }
+}
+
+// Adjust blend mode for light theme to prevent over-exposure
+[data-theme="light"] .mesh-bg__blob {
+  mix-blend-mode: multiply;
+}
+
+// Floating animations keyframes
+@keyframes float-blob-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(120px, 90px) scale(1.15);
+  }
+  100% {
+    transform: translate(-60px, 180px) scale(0.9);
+  }
+}
+
+@keyframes float-blob-2 {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+  }
+  50% {
+    transform: translate(-140px, -80px) scale(0.85);
+  }
+  100% {
+    transform: translate(90px, -180px) scale(1.2);
+  }
+}
+
+@keyframes float-blob-3 {
+  0% {
+    transform: translate(0, 0) scale(0.9);
+  }
+  50% {
+    transform: translate(-90px, 120px) scale(1.1);
+  }
+  100% {
+    transform: translate(110px, -60px) scale(0.95);
+  }
+}
+
+@keyframes float-blob-4 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(160px, -110px) scale(0.85);
+  }
+  100% {
+    transform: translate(-120px, 90px) scale(1.1);
+  }
+}

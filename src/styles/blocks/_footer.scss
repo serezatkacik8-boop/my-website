@@ -1,0 +1,45 @@
+// BEM Block: .footer
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  
+  // Element: __container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    
+    @media (max-width: 576px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  // Element: __text
+  &__text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  
+  // Element: __links
+  &__links {
+    display: flex;
+    gap: 24px;
+    
+    @media (max-width: 576px) {
+      justify-content: center;
+    }
+  }
+  
+  // Element: __link
+  &__link {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    
+    &:hover {
+      color: var(--accent-primary);
+    }
+  }
+}
