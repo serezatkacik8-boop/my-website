@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Сергей | Frontend Developer | Портфолио</title>
+    <meta name="description" content="Сайт-портфолио Сергея, профессионального Frontend разработчика. Создание современных, быстрых и отзывчивых веб-интерфейсов." />
+    <meta name="keywords" content="Frontend, разработчик, React, JavaScript, HTML, CSS, SCSS, веб-разработка, Сергей портфолио" />
+    <meta name="author" content="Сергей" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/my-website/avatar.png" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/my-website/assets/index--JQk_qkL.js"></script>
+    <link rel="stylesheet" crossorigin href="/my-website/assets/index-VTS8m9uY.css">
+  </head>
+  <body>
+    <!-- Floating Neon Mesh Gradient Background -->
+    <div class="mesh-bg">
+      <div class="mesh-bg__blob mesh-bg__blob--1"></div>
+      <div class="mesh-bg__blob mesh-bg__blob--2"></div>
+      <div class="mesh-bg__blob mesh-bg__blob--3"></div>
+      <div class="mesh-bg__blob mesh-bg__blob--4"></div>
+    </div>
+
+    <!-- IT Style Falling Matrix Canvas Background -->
+    <canvas class="tech-bg" id="tech-bg"></canvas>
+
+    <!-- Header Block -->
+    <header class="header" id="header">
+      <div class="header__container container">
+        <a href="#hero" class="header__logo" id="logo">
+          Сергей<span class="header__logo-dot"></span>
+        </a>
+        
+        <nav class="header__nav" id="nav-menu">
+          <a href="#hero" class="header__link header__link--active">Главная</a>
+          <a href="#about" class="header__link">О себе</a>
+          <a href="#certificates" class="header__link">Сертификаты</a>
+          <a href="#skills" class="header__link">Навыки</a>
+          <a href="#projects" class="header__link">Проекты</a>
+          <a href="#contact" class="header__link">Контакты</a>
+        </nav>
+        
+        <div class="header__actions">
+          <button class="header__theme-toggle" id="theme-toggle" aria-label="Переключить тему">
+            <!-- Sun Icon (shown in light theme) -->
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+            </svg>
+            <!-- Moon Icon (shown in dark theme) -->
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+          </button>
+          
+          <button class="header__menu-toggle" id="menu-toggle" aria-label="Открыть меню">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Block -->
+      <section class="hero section" id="hero">
+        <div class="hero__glow-spot"></div>
+        <div class="hero__glow-spot hero__glow-spot--2"></div>
+        
+        <div class="hero__container container">
+          <div class="hero__content">
+            <div class="hero__greeting">
+              Привет <span class="hero__greeting-wave">👋</span> я Сергей
+            </div>
+            <h1 class="hero__title">
+              Frontend <br />
+              <span class="gradient-text" id="typing-text"></span>
+            </h1>
+            <p class="hero__subtitle">
+              Разрабатываю современные, быстрые и интуитивно понятные интерфейсы. Специализируюсь на создании удобных веб-приложений с чистым кодом и плавной анимацией.
+            </p>
+            <div class="hero__buttons">
+              <a href="#contact" class="btn btn--primary">Связаться со мной</a>
+              <a href="#projects" class="btn btn--secondary">Посмотреть работы</a>
+            </div>
+          </div>
+          
+          <div class="hero__image-wrapper">
+            <div class="hero__image-bg"></div>
+            <div class="hero__image-card">
+              <img src="/my-website/avatar.png" class="hero__image" alt="Сергей - Frontend Developer" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Block -->
+      <section class="about section" id="about">
+        <div class="about__container container">
+          <div class="about__grid">
+            <div class="about__content">
+              <h2 class="about__title"><span class="gradient-text">Обо мне</span></h2>
+              <p class="about__text">
+                Я увлеченный Frontend-разработчик с глубоким интересом к созданию интерфейсов, с которыми приятно взаимодействовать. Моя цель — создавать высокопроизводительные веб-приложения, которые сочетают в себе эстетичный дизайн и отличный пользовательский опыт (UX).
+              </p>
+              <p class="about__text">
+                Сейчас я обучаюсь во Frontend-разработке в <strong>Mate Academy</strong>, где активно оттачиваю навыки создания интерфейсов, изучаю современные стандарты кодовой базы и лучшие практики веб-индустрии. Уделяю особое внимание адаптивности, доступности (a11y) и производительности веб-страниц.
+              </p>
+            </div>
+            
+            <div class="about__stats">
+              <div class="about__stat-card">
+                <span class="about__stat-number gradient-text">Mate</span>
+                <div class="about__stat-label">Академия</div>
+              </div>
+              <div class="about__stat-card">
+                <span class="about__stat-number gradient-text">1</span>
+                <div class="about__stat-label">Проект</div>
+              </div>
+              <div class="about__stat-card">
+                <span class="about__stat-number gradient-text">500+</span>
+                <div class="about__stat-label">GitHub коммитов</div>
+              </div>
+              <div class="about__stat-card">
+                <span class="about__stat-number gradient-text">15+</span>
+                <div class="about__stat-label">Технологий</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certificates Block -->
+      <section class="certificates section" id="certificates">
+        <div class="certificates__container container">
+          <h2 class="certificates__title"><span class="gradient-text">Мои сертификаты</span></h2>
+          <div class="certificates__grid">
+            <!-- Certificate Card 1 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">HTML + CSS Advanced</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">08 июня 2026</p>
+              <a href="/certificates/html_css_advanced.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+
+            <!-- Certificate Card 2 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">JavaScript Basics Extended</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">18 мая 2026</p>
+              <a href="/certificates/javascript_extended.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+
+            <!-- Certificate Card 3 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">Git and Terminal</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">05 апреля 2026</p>
+              <a href="/certificates/git_terminal.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+
+            <!-- Certificate Card 4 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">HTML + CSS Basics</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">02 апреля 2026</p>
+              <a href="/certificates/html_css_basics.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+
+            <!-- Certificate Card 5 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">GenAI Essentials</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">05 февраля 2026</p>
+              <a href="/certificates/genai_essentials.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+
+            <!-- Certificate Card 6 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">JavaScript Basics</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">16 января 2026</p>
+              <a href="/certificates/javascript_basics.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+
+            <!-- Certificate Card 7 -->
+            <div class="certificates__card">
+              <div class="certificates__card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="certificates__card-title">Get Started</h3>
+              <p class="certificates__card-issuer">Mate Academy</p>
+              <p class="certificates__card-date">03 января 2026</p>
+              <a href="/certificates/get_started.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">Посмотреть PDF</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Block -->
+      <section class="skills section" id="skills">
+        <div class="skills__container container">
+          <h2 class="skills__title"><span class="gradient-text">Навыки & Стек</span></h2>
+          
+          <div class="skills__grid">
+            <!-- Category 1 -->
+            <div class="skills__category">
+              <h3 class="skills__category-title">
+                <span class="skills__category-title-icon">🎨</span> Верстка (HTML / CSS)
+              </h3>
+              <ul class="skills__list">
+                <li class="skills__item">HTML5 / CSS3</li>
+                <li class="skills__item">SCSS / SASS</li>
+                <li class="skills__item">BEM методология</li>
+                <li class="skills__item">Адаптивная верстка</li>
+                <li class="skills__item">Семантическая верстка</li>
+                <li class="skills__item">Кроссбраузерность</li>
+              </ul>
+            </div>
+            
+            <!-- Category 2 -->
+            <div class="skills__category">
+              <h3 class="skills__category-title">
+                <span class="skills__category-title-icon">⚡</span> JavaScript
+              </h3>
+              <ul class="skills__list">
+                <li class="skills__item">JavaScript Basics</li>
+                <li class="skills__item">JavaScript Extended</li>
+                <li class="skills__item">ES6+ стандарты</li>
+                <li class="skills__item">Работа с DOM API</li>
+                <li class="skills__item">Обработка событий</li>
+                <li class="skills__item">Работа с формами</li>
+              </ul>
+            </div>
+            
+            <!-- Category 3 -->
+            <div class="skills__category">
+              <h3 class="skills__category-title">
+                <span class="skills__category-title-icon">🛠️</span> Инструменты & AI
+              </h3>
+              <ul class="skills__list">
+                <li class="skills__item">Git / GitHub</li>
+                <li class="skills__item">Terminal (Командная строка)</li>
+                <li class="skills__item">GenAI Essentials</li>
+                <li class="skills__item">Сборщик Vite</li>
+                <li class="skills__item">Figma</li>
+                <li class="skills__item">NPM менеджер пакетов</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Block -->
+      <section class="projects section" id="projects">
+        <div class="projects__container container">
+          <h2 class="projects__title"><span class="gradient-text">Мои проекты</span></h2>
+          
+          <div class="projects__filters">
+            <button class="projects__filter-btn projects__filter-btn--active" data-filter="all">Все</button>
+            <button class="projects__filter-btn" data-filter="react">React / Next.js</button>
+            <button class="projects__filter-btn" data-filter="javascript">Vanilla JS</button>
+          </div>
+          
+          <div class="projects__grid" id="projects-grid">
+            <!-- Project: MyBike -->
+            <article class="projects__card" data-category="javascript">
+              <div class="projects__card-image-wrapper">
+                <img src="/my-website/project_mybike.png" class="projects__card-image" alt="MyBike - Лендинг для велосипедов" />
+              </div>
+              <div class="projects__card-content">
+                <div class="projects__card-tags">
+                  <span class="projects__card-tag">HTML5</span>
+                  <span class="projects__card-tag">CSS3</span>
+                  <span class="projects__card-tag">BEM</span>
+                  <span class="projects__card-tag">JavaScript</span>
+                </div>
+                <h3 class="projects__card-title">MyBike Landing Page</h3>
+                <p class="projects__card-desc">
+                  Адаптивный лендинг для проката и продажи велосипедов MyBike с чистой структурированной версткой по BEM и интерактивными компонентами.
+                </p>
+                <div class="projects__card-links">
+                  <a href="https://github.com/serezatkacik8-boop/layout_landing-page" target="_blank" rel="noopener noreferrer" class="projects__card-link">
+                    <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    Код
+                  </a>
+                  <a href="https://serezatkacik8-boop.github.io/layout_landing-page/" target="_blank" rel="noopener noreferrer" class="projects__card-link">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.4z"/></svg>
+                    Демо
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Block -->
+      <section class="contact section" id="contact">
+        <div class="contact__container container">
+          <h2 class="contact__title"><span class="gradient-text">Связаться со мной</span></h2>
+          
+          <div class="contact__grid">
+            <!-- Left Info Block -->
+            <div class="contact__info">
+              <!-- Item 1 -->
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </div>
+                <div class="contact__info-content">
+                  <span class="contact__info-label">Email</span>
+                  <a href="mailto:sergey.dev@example.com" class="contact__info-value">sergey.dev@example.com</a>
+                </div>
+              </div>
+              
+              <!-- Item 2 -->
+              <div class="contact__info-item">
+                <div class="contact__info-icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </div>
+                <div class="contact__info-content">
+                  <span class="contact__info-label">Локация</span>
+                  <span class="contact__info-value">Одесса, Украина</span>
+                </div>
+              </div>
+              
+              <!-- Social Links -->
+              <div class="contact__socials">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="Telegram">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.6.15-.15 2.7-2.46 2.75-2.67.01-.03.01-.13-.05-.18-.06-.05-.15-.03-.21-.02-.09.02-1.48.94-4.18 2.76-.4.27-.76.4-1.08.39-.36 0-1.05-.2-1.56-.36-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.13 0 .18z"/></svg>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Right Form Block -->
+            <form class="contact__form" id="contact-form">
+              <div class="contact__feedback" id="form-feedback"></div>
+              
+              <div class="contact__form-group">
+                <label for="name" class="contact__label">Ваше имя</label>
+                <input type="text" id="name" name="name" class="contact__input" placeholder="Иван Иванов" required />
+              </div>
+              
+              <div class="contact__form-group">
+                <label for="email" class="contact__label">Email</label>
+                <input type="email" id="email" name="email" class="contact__input" placeholder="ivan@example.com" required />
+              </div>
+              
+              <div class="contact__form-group">
+                <label for="message" class="contact__label">Сообщение</label>
+                <textarea id="message" name="message" class="contact__textarea" placeholder="Здравствуйте, хочу обсудить проект..." required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn--primary">Отправить сообщение</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Block -->
+    <footer class="footer">
+      <div class="footer__container container">
+        <p class="footer__text">
+          &copy; <span id="current-year"></span> Сергей. Все права защищены.
+        </p>
+        <div class="footer__links">
+          <a href="#hero" class="footer__link">Главная</a>
+          <a href="#about" class="footer__link">О себе</a>
+          <a href="#projects" class="footer__link">Проекты</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
