@@ -1,0 +1,197 @@
+// BEM Block: .desktop-container & .desktop
+.desktop-container {
+  perspective: 1400px;
+  perspective-origin: 50% 30%;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  margin-top: 20px;
+}
+
+.desktop {
+  position: relative;
+  width: 440px;
+  height: 380px;
+  transform-style: preserve-3d;
+  transform: scale(var(--desktop-scale, 1)) rotateX(16deg) rotateY(-20deg) rotateZ(0deg) translateY(20px);
+  transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: desktop-float 6s ease-in-out infinite alternate;
+  
+  @media (max-width: 768px) {
+    --desktop-scale: 0.85;
+  }
+  @media (max-width: 480px) {
+    --desktop-scale: 0.6;
+  }
+}
+
+// --- Monitor Component ---
+.desktop__monitor {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  width: 380px;
+  height: 300px;
+  transform-style: preserve-3d;
+}
+
+.desktop__screen-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 230px;
+  background: #0c0f16;
+  border: 3px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.9);
+  padding: 8px;
+  box-sizing: border-box;
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.desktop__screen {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(255, 255, 255, 0.01) 100%);
+    pointer-events: none;
+  }
+}
+
+.desktop__snake-canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: block;
+}
+
+.desktop__screen-logo {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.desktop__stand-leg {
+  position: absolute;
+  top: 228px;
+  left: 178px; // centered
+  width: 24px;
+  height: 50px;
+  background: linear-gradient(to bottom, #11141d, #07090d);
+  border: 2px solid var(--border-color);
+  border-top: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.desktop__stand-base {
+  position: absolute;
+  top: 255px;
+  left: 120px;
+  width: 140px;
+  height: 60px;
+  background: linear-gradient(135deg, #10141f 0%, #07090d 100%);
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  transform: rotateX(75deg);
+  transform-origin: top center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+// --- Keyboard Component ---
+.desktop__keyboard {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  width: 250px;
+  height: 80px;
+  background: linear-gradient(135deg, #10141f 0%, #07090d 100%);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  transform: rotateX(68deg) rotateZ(-3deg);
+  transform-origin: top center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 6px;
+  box-sizing: border-box;
+}
+
+.desktop__key-strip {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  
+  &:nth-child(2) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  &:nth-child(3) {
+    height: 12px; // space bar row
+  }
+}
+
+// --- Mouse Component ---
+.desktop__mouse {
+  position: absolute;
+  bottom: 25px;
+  left: 330px;
+  width: 32px;
+  height: 52px;
+  background: linear-gradient(135deg, #10141f 0%, #07090d 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 12px 12px 8px 8px;
+  transform: rotateX(68deg) rotateZ(8deg);
+  transform-origin: top center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.desktop__mouse-wheel {
+  width: 4px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 8px auto 0 auto;
+  border-radius: 2px;
+}
+
+// --- Keyframe Animations ---
+@keyframes desktop-float {
+  0% {
+    transform: scale(var(--desktop-scale, 1)) rotateX(16deg) rotateY(-20deg) rotateZ(0deg) translateY(20px);
+  }
+  100% {
+    transform: scale(var(--desktop-scale, 1)) rotateX(16deg) rotateY(-20deg) rotateZ(0deg) translateY(6px);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 992px) {
+  .desktop-container {
+    height: 420px;
+  }
+}

@@ -280,7 +280,7 @@ const drawMatrix = () => {
   const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
   
   // Fade trailing frames
-  bgCtx.fillStyle = isLightMode ? 'rgba(248, 250, 252, 0.1)' : 'rgba(10, 14, 23, 0.1)';
+  bgCtx.fillStyle = isLightMode ? 'rgba(248, 250, 252, 0.1)' : 'rgba(0, 0, 0, 0.1)';
   bgCtx.fillRect(0, 0, bgCanvas.width, bgCanvas.height);
 
   // Render falling characters
@@ -299,4 +299,239 @@ const drawMatrix = () => {
 };
 
 setInterval(drawMatrix, 40);
+
+// -------------------------------------------------------------
+// 10. Self-Playing Snake Game Animation on Laptop Screen
+// -------------------------------------------------------------
+const initSnakeGame = () => {
+  const canvas = document.getElementById('snake-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  
+  // Set resolution to look retro and sharp
+  canvas.width = 360;
+  canvas.height = 216;
+
+  const cols = 20;
+  const rows = 12;
+  const cellSize = canvas.width / cols; // 18px
+
+  let snake = [
+    {x: 5, y: 6},
+    {x: 4, y: 6},
+    {x: 3, y: 6}
+  ];
+  let direction = {x: 1, y: 0};
+  let food = {x: 14, y: 6};
+  let score = 0;
+  let gameTick = 0;
+  let flashEffect = 0;
+
+  const spawnFood = () => {
+    let attempts = 0;
+    while (attempts < 100) {
+      const rx = Math.floor(Math.random() * cols);
+      const ry = Math.floor(Math.random() * rows);
+      // Verify not on snake body
+      const onSnake = snake.some(s => s.x === rx && s.y === ry);
+      if (!onSnake) {
+        food = {x: rx, y: ry};
+        break;
+      }
+      attempts++;
+    }
+  };
+
+  const getDistance = (p1, p2) => {
+    return Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
+  };
+
+  const calculateNextMove = () => {
+    const head = snake[0];
+    const moves = [
+      {x: 0, y: -1, name: 'UP'},
+      {x: 0, y: 1, name: 'DOWN'},
+      {x: -1, y: 0, name: 'LEFT'},
+      {x: 1, y: 0, name: 'RIGHT'}
+    ];
+
+    let bestMove = null;
+    let minDistance = Infinity;
+
+    for (const move of moves) {
+      const nextX = head.x + move.x;
+      const nextY = head.y + move.y;
+
+      // Check boundary collisions
+      if (nextX < 0 || nextX >= cols || nextY < 0 || nextY >= rows) {
+        continue;
+      }
+
+      // Check self collision (excluding the tail tip)
+      const collidesBody = snake.slice(0, -1).some(s => s.x === nextX && s.y === nextY);
+      if (collidesBody) {
+        continue;
+      }
+
+      const dist = getDistance({x: nextX, y: nextY}, food);
+      if (dist < minDistance) {
+        minDistance = dist;
+        bestMove = move;
+      }
+    }
+
+    if (bestMove) {
+      direction = bestMove;
+    }
+  };
+
+  const resetGame = () => {
+    snake = [
+      {x: 5, y: 6},
+      {x: 4, y: 6},
+      {x: 3, y: 6}
+    ];
+    direction = {x: 1, y: 0};
+    score = 0;
+    flashEffect = 10;
+    spawnFood();
+  };
+
+  const update = () => {
+    gameTick++;
+    if (flashEffect > 0) {
+      flashEffect--;
+      return;
+    }
+
+    // AI calculations to find path
+    calculateNextMove();
+
+    const head = snake[0];
+    const nextHead = {x: head.x + direction.x, y: head.y + direction.y};
+
+    // If dead (collides wall or body)
+    if (
+      nextHead.x < 0 || nextHead.x >= cols || 
+      nextHead.y < 0 || nextHead.y >= rows ||
+      snake.some(s => s.x === nextHead.x && s.y === nextHead.y)
+    ) {
+      resetGame();
+      return;
+    }
+
+    snake.unshift(nextHead);
+
+    // Eating food
+    if (nextHead.x === food.x && nextHead.y === food.y) {
+      score += 10;
+      spawnFood();
+    } else {
+      snake.pop();
+    }
+  };
+
+  const draw = () => {
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw background retro grid lines
+    ctx.strokeStyle = 'rgba(6, 182, 212, 0.05)';
+    ctx.lineWidth = 0.5;
+    for (let c = 0; c <= cols; c++) {
+      ctx.beginPath();
+      ctx.moveTo(c * cellSize, 0);
+      ctx.lineTo(c * cellSize, canvas.height);
+      ctx.stroke();
+    }
+    for (let r = 0; r <= rows; r++) {
+      ctx.beginPath();
+      ctx.moveTo(0, r * cellSize);
+      ctx.lineTo(canvas.width, r * cellSize);
+      ctx.stroke();
+    }
+
+    if (flashEffect > 0) {
+      // Death flash effect
+      ctx.fillStyle = `rgba(239, 68, 68, ${flashEffect * 0.08})`;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = '#ef4444';
+      ctx.shadowColor = '#ef4444';
+      ctx.shadowBlur = 10;
+      ctx.font = 'bold 20px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('CRASH', canvas.width / 2, canvas.height / 2 + 6);
+      ctx.shadowBlur = 0;
+      return;
+    }
+
+    // Draw food (pulsing neon magenta circle)
+    const pulse = 1 + Math.sin(gameTick * 0.2) * 0.15;
+    const foodRadius = (cellSize / 2.5) * pulse;
+    ctx.beginPath();
+    ctx.arc(
+      food.x * cellSize + cellSize / 2,
+      food.y * cellSize + cellSize / 2,
+      foodRadius,
+      0,
+      Math.PI * 2
+    );
+    ctx.fillStyle = '#ec4899';
+    ctx.shadowColor = '#ec4899';
+    ctx.shadowBlur = 8;
+    ctx.fill();
+
+    // Draw snake
+    snake.forEach((segment, idx) => {
+      const isHead = idx === 0;
+      const size = cellSize - 2;
+      const x = segment.x * cellSize + 1;
+      const y = segment.y * cellSize + 1;
+
+      ctx.fillStyle = isHead ? '#00ffcc' : '#8b5cf6';
+      ctx.shadowColor = isHead ? '#00ffcc' : '#8b5cf6';
+      ctx.shadowBlur = isHead ? 8 : 4;
+      
+      // Draw rounded block
+      ctx.beginPath();
+      ctx.roundRect(x, y, size, size, isHead ? 5 : 3);
+      ctx.fill();
+    });
+
+    // Reset shadow blur for text
+    ctx.shadowBlur = 0;
+
+    // Draw retro scanlines overlay
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+    for (let y = 0; y < canvas.height; y += 3) {
+      ctx.fillRect(0, y, canvas.width, 1);
+    }
+
+    // Draw score
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText(`SCORE: ${score}`, 10, 20);
+    
+    ctx.textAlign = 'right';
+    ctx.fillText('AUTO_PILOT', canvas.width - 10, 20);
+  };
+
+  const gameLoop = () => {
+    update();
+    draw();
+    setTimeout(gameLoop, 130);
+  };
+
+  spawnFood();
+  gameLoop();
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initSnakeGame);
+} else {
+  initSnakeGame();
+}
 

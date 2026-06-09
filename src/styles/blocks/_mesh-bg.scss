@@ -63,7 +63,7 @@
 
 // Adjust blend mode for light theme to prevent over-exposure
 [data-theme="light"] .mesh-bg__blob {
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
 }
 
 // Floating animations keyframes
